@@ -7,11 +7,12 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-string conn = builder.Configuration.GetConnectionString("ConnMySql");
+//string conn = builder.Configuration.GetConnectionString("ConnMySql");
+string conn = builder.Configuration.GetConnectionString("ConnDocker");
 builder.Services.AddTransient<RepositoryComics>();
 builder.Services.AddDbContextPool<ComicsContext>(options => options.UseMySQL(conn));
 
-builder.WebHost.UseUrls("https://0.0.0.0:80");
+builder.WebHost.UseUrls("http://0.0.0.0:80");
 
 var app = builder.Build();
 
