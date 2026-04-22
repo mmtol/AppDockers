@@ -11,6 +11,8 @@ string conn = builder.Configuration.GetConnectionString("ConnMySql");
 builder.Services.AddTransient<RepositoryComics>();
 builder.Services.AddDbContextPool<ComicsContext>(options => options.UseMySQL(conn));
 
+builder.WebHost.UseUrls("https://0.0.0.0:80");
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
